@@ -14,6 +14,7 @@ void GameModule::initGame()
     _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Arcade");
     _window->setFramerateLimit(60);
     _texture->loadFromFile("./utils/tileset.png");
+    _event = new sf::Event;
     setMap();
 }
 
@@ -23,6 +24,7 @@ void GameModule::setMap()
     char c;
 
     while (infile.get(c))
+        if (c >= '0' && c <= '7')
         _map.push_back(c - '0');
 }
 

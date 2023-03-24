@@ -12,6 +12,9 @@ int gameLoop()
     GameModule game;
 
     game.initGame();
-    game.drawGame();
-    return;
+    while (game._loop) {
+        game.handleEvents();
+        game.drawGame();
+    }
+    return 0;
 }

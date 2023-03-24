@@ -27,7 +27,7 @@ TMP		=	$(wildcard lib/*.gcno) \
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJ)
-		$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
+		$(CC) $(OBJ) -o $(NAME) -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio $(CFLAGS)
 
 clean	:
 		$(RM) $(OBJ)
