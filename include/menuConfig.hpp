@@ -8,10 +8,10 @@
 #pragma once
 #include "./parallelJam.hpp"
 
-class initMenu {
+class MenuConfig {
     public:
-        initMenu();
-        ~initMenu();
+        MenuConfig();
+        ~MenuConfig();
         void drawMenu();
         void handleEvents();
 

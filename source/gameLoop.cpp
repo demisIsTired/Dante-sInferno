@@ -6,11 +6,14 @@
 */
 
 #include "../include/parallelJam.hpp"
+#include "../include/menuConfig.hpp"
 
 int gameLoop()
 {
     GameModule game;
+    MenuConfig menu;
 
+    menu.drawMenu();
     game.initGame();
     while (game._loop) {
         game.handleEvents();
