@@ -9,5 +9,6 @@
 
 int main()
 {
+    srand (time(NULL));
     return gameLoop();
 }
