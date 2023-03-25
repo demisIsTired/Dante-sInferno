@@ -100,8 +100,8 @@ void GameModule::handleEvents()
         _enemyPos[i].x += _enemyPush[i].x;
     }
 
+    //check collision
     int playerCell = ((int) (_player_y + 0.7) * _size_x) + (_player_x + 0.43);
-
     for (int i = 0; i < 4; i++) {
         cell = (int) ((int) (_enemyPos[i].y + 0.5 + _enemyPush[i].y) * _size_x) + (int) (_enemyPos[i].x + 0.5);
         if (cell == playerCell) {
@@ -109,4 +109,11 @@ void GameModule::handleEvents()
             initGame();
         }
     }
+
+    //handle score
+    if (_timer && _timer % 60 == 0) {
+        _timer = 0;
+        _score += 1;
+    }
+    _timer += 1;
 }

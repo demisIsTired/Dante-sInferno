@@ -17,6 +17,12 @@ void GameModule::deleteGame()
 
 void GameModule::initGame()
 {
+
+    _player_x = 2;
+    _player_y = 15;
+    _score = 0;
+    _timer = 0;
+
     if (_window == nullptr) {
         _texture = new sf::Texture;
         _sprite = new sf::Sprite;
@@ -24,6 +30,8 @@ void GameModule::initGame()
         _window->setFramerateLimit(60);
         _texture->loadFromFile("./utils/tileset.png");
         _event = new sf::Event;
+        _font = new sf::Font;
+        _font->loadFromFile("./utils/font.ttf");
     }
     
     struct Point pos;

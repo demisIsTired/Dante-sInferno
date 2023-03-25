@@ -43,14 +43,17 @@ class GameModule {
         void drawMap();
         void drawGame();
         void drawMenu();
-        void drawPlayer(int i);
         void handleEvents();
+        void drawPlayer(int i);
+        void drawText(int i);
         void drawEnemy(int i);
         sf::IntRect getMapRect(int type);
         int _size_x = 30;
         int _size_y = 30;
         int _map_x = 0;
         int _map_y = 0;
+        int _timer = 0;
+        int _score = 0;
         float _player_x = 2;
         float _player_y = 15;
         int _left = 0;
@@ -69,6 +72,7 @@ class GameModule {
         std::vector<struct Point> _enemyPush;
         std::vector<int> _map;
         sf::Event *_event = nullptr;
+        sf::Font *_font = nullptr;
         sf::Sprite *_sprite = nullptr;
         sf::Texture *_texture = nullptr;
         sf::RenderWindow *_window = nullptr;

@@ -34,10 +34,10 @@ sf::IntRect GameModule::getMapRect(int type)
             rect.height = 16;
             return rect;    
         case 3:
-            rect.left = 76 + 5;
-            rect.top = 129 + 10;
+            rect.left = 32;
+            rect.top = 97 + 16;
             rect.width = 16;
-            rect.height = 3;
+            rect.height = 20;
             return rect;
         case 4:
             rect.left = 60;
@@ -76,6 +76,23 @@ sf::Vector2f getScaledPosition(int i, int j, int size_x, float scaleTiles, float
     pos.x = base_x * scale;
     pos.y = base_y * scale;
     return pos;
+}
+
+void GameModule::drawText(int i)
+{
+    sf::Text text;
+
+    text.setFont(*_font);
+    text.setString("Score: " + std::to_string(_score));
+
+    sf::Vector2f pos;
+
+    pos.x = (13 * (_pushTiles * _scaleDown)) + PUSH_MAP_X - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_x * (i + 2));
+    pos.y = (14 * (_pushTiles * _scaleDown)) + PUSH_MAP_Y - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_y * (i + 2));
+
+    text.setPosition(pos);
+    text.setCharacterSize((i + 1) * (5));
+    _window->draw(text);
 }
 
 void GameModule::drawEnemy(int i)
@@ -132,6 +149,8 @@ void GameModule::drawMap()
             _window->draw(*_sprite);
             drawPlayer(i);
             drawEnemy(i);
+            if (i == 3)
+                drawText(i);
         }
         _scaleDown *= 2;
     }
