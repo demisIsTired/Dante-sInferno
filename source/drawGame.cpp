@@ -20,8 +20,6 @@
 sf::IntRect GameModule::getMapRect(int type)
 {
     sf::IntRect rect;
-    if (type < 1 || type > 7)
-        printf("type: %d\n", type);
     switch (type) {
         case 1:
             rect.left = 16;
@@ -30,11 +28,11 @@ sf::IntRect GameModule::getMapRect(int type)
             rect.height = 16;
             return rect;
         case 2:
-            rect.left = 16;
-            rect.top = 65;
+            rect.left = 20;
+            rect.top = 129;
             rect.width = 16;
             rect.height = 16;
-            return rect;
+            return rect;    
         case 3:
             rect.left = 16;
             rect.top = 65;
@@ -42,14 +40,14 @@ sf::IntRect GameModule::getMapRect(int type)
             rect.height = 16;
             return rect;
         case 4:
-            rect.left = 16;
-            rect.top = 65;
-            rect.width = 16;
+            rect.left = 60;
+            rect.top = 129;
+            rect.width = 4;
             rect.height = 16;
             return rect;
         case 5:
-            rect.left = 16;
-            rect.top = 65;
+            rect.left = 76 + 5;
+            rect.top = 129 + 12;
             rect.width = 16;
             rect.height = 16;
             return rect;
@@ -60,6 +58,12 @@ sf::IntRect GameModule::getMapRect(int type)
             rect.height = 16;
             return rect;
         case 7:
+            rect.left = 16;
+            rect.top = 65;
+            rect.width = 16;
+            rect.height = 16;
+            return rect;
+        case 8:
             rect.left = 16;
             rect.top = 65;
             rect.width = 16;
@@ -101,7 +105,7 @@ void GameModule::drawMap()
         for (int j = 0; j < size; j++) {
             if (!_map[j])
                 continue;;
-            _sprite->setTextureRect(getMapRect(_map[i]));
+            _sprite->setTextureRect(getMapRect(_map[j]));
             _sprite->setPosition(sf::Vector2f((j % _size_x * (_pushTiles * _scaleDown)) + PUSH_MAP_X - (i * MAP_PUSH_BACK * (i * 0.85)) + (_player_x * (i + 2)), ((j / _size_x) * (_pushTiles * _scaleDown)) + PUSH_MAP_Y - (i * MAP_PUSH_BACK * (i * 0.85)) + (_player_y * (i + 2))));
             _sprite->setScale(_scaleDown, _scaleDown);
             _window->draw(*_sprite);
@@ -112,7 +116,8 @@ void GameModule::drawMap()
 
 void GameModule::drawGame()
 {
-    _window->clear(sf::Color::Black);
+    sf::Color greyColor(15, 15, 15, 255);
+    _window->clear(greyColor);
     drawMap();
     _window->display();
 }

@@ -24,7 +24,7 @@ void GameModule::setMap()
     char c;
 
     while (infile.get(c))
-        if (c >= '0' && c <= '7')
+        if (c >= '0' && c <= '8')
         _map.push_back(c - '0');
 }
 
