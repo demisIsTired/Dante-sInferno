@@ -17,8 +17,8 @@ class MenuConfig {
 
     private:
         int _loop = 1;
+        bool _quit = false;
         sf::Event *_event;
-        sf::Sprite *_sprite;
-        sf::Texture *_texture;
         sf::RenderWindow *_window;
+        std::vector<sf::Sprite*> _sprites;
 };
