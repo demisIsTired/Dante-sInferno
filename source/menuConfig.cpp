@@ -9,11 +9,11 @@
 
 MenuConfig::MenuConfig()
 {
-    _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Arcade");
+    _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "ParallelJam");
     _window->setFramerateLimit(60);
 
     sf::Texture* background_tx = new sf::Texture;
-    background_tx->loadFromFile("./utils/tileset.png");
+    background_tx->loadFromFile("./utils/menu/background.png");
     sf::Texture* play_btn_tx = new sf::Texture;
     play_btn_tx->loadFromFile("./utils/menu/menu_play_high.png");
     sf::Texture* quit_btn_tx = new sf::Texture;
@@ -22,6 +22,7 @@ MenuConfig::MenuConfig()
     sf::Sprite* background_sp = new sf::Sprite;
     background_sp->setTexture(*background_tx);
     background_sp->setTextureRect(sf::IntRect(0, 0, 1920, 1080));
+    background_sp->setPosition(450, 200);
     sf::Sprite* play_button_sp = new sf::Sprite;
     play_button_sp->setTexture(*play_btn_tx);
     play_button_sp->setTextureRect(sf::IntRect(0, 0, 600, 100));
@@ -31,9 +32,7 @@ MenuConfig::MenuConfig()
     quit_button_sp->setTextureRect(sf::IntRect(0, 0, 600, 100));
     quit_button_sp->setPosition(864, 586);
 
-    sf::Vector2u windowSize = _window->getSize();
-
-    //_sprites.push_back(background_sp);
+    _sprites.push_back(background_sp);
     _sprites.push_back(play_button_sp);
     _sprites.push_back(quit_button_sp);
 
@@ -80,19 +79,19 @@ void MenuConfig::handleEvents()
             if (_event->key.code == sf::Keyboard::Up) {
                 sf::Texture* play_btn_tx = new sf::Texture;
                 play_btn_tx->loadFromFile("./utils/menu/menu_play_high.png");
-                _sprites[0]->setTexture(*play_btn_tx);
+                _sprites[1]->setTexture(*play_btn_tx);
                 sf::Texture* quit_btn_tx = new sf::Texture;
                 quit_btn_tx->loadFromFile("./utils/menu/menu_quit.png");
-                _sprites[1]->setTexture(*quit_btn_tx);
+                _sprites[2]->setTexture(*quit_btn_tx);
                 _quit = false;
             }
             if (_event->key.code == sf::Keyboard::Down) {
                 sf::Texture* play_btn_tx = new sf::Texture;
                 play_btn_tx->loadFromFile("./utils/menu/menu_play.png");
-                _sprites[0]->setTexture(*play_btn_tx);
+                _sprites[1]->setTexture(*play_btn_tx);
                 sf::Texture* quit_btn_tx = new sf::Texture;
                 quit_btn_tx->loadFromFile("./utils/menu/menu_quit_high.png");
-                _sprites[1]->setTexture(*quit_btn_tx);
+                _sprites[2]->setTexture(*quit_btn_tx);
                 _quit = true;
             }
         }

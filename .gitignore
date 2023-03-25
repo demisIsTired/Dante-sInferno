@@ -1,4 +1,7 @@
-.idea/
+parrallelJam
+
 main.o
 source/*.o
-parrallelJam
+
+.idea/
+.vscode/
