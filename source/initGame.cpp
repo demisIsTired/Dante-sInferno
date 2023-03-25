@@ -7,14 +7,45 @@
 
 #include "../include/parallelJam.hpp"
 
+
+void GameModule::deleteGame()
+{
+    _enemyPos.clear();
+    _enemyPush.clear();
+    _map.clear();
+}
+
 void GameModule::initGame()
 {
-    _texture = new sf::Texture;
-    _sprite = new sf::Sprite;
-    _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Arcade");
-    _window->setFramerateLimit(60);
-    _texture->loadFromFile("./utils/tileset.png");
-    _event = new sf::Event;
+    if (_window == nullptr) {
+        _texture = new sf::Texture;
+        _sprite = new sf::Sprite;
+        _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Arcade");
+        _window->setFramerateLimit(60);
+        _texture->loadFromFile("./utils/tileset.png");
+        _event = new sf::Event;
+    }
+    
+    struct Point pos;
+    pos.x = 26;
+    pos.y = 16;
+    for (int i = 0; i < 4; i++) {
+        _enemyPos.push_back(pos);
+    }
+    
+    pos.x = 0.05;
+    pos.y = 0.05;
+    _enemyPush.push_back(pos);
+    pos.x = -0.05;
+    pos.y = -0.05;
+    _enemyPush.push_back(pos);
+    pos.x = 0.05;
+    pos.y = -0.05;
+    _enemyPush.push_back(pos);
+    pos.x = -0.05;
+    pos.y = 0.05;
+    _enemyPush.push_back(pos);
+    
     setMap();
 }
 
