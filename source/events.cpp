@@ -7,6 +7,18 @@
 
 #include "../include/parallelJam.hpp"
 
+void GameModule::getNextChosenCell()
+{
+    std::vector<int> goodCells;
+
+    for (size_t i = 0; i < _map.size(); i++) {
+        if (_map[i] == 1)
+            goodCells.push_back(i);
+    }
+
+    _pointCell = goodCells[rand() % goodCells.size()];
+}
+
 void GameModule::handleEvents()
 {
 
@@ -116,4 +128,9 @@ void GameModule::handleEvents()
         _score += 1;
     }
     _timer += 1;
+
+    if (_pointCell == playerCell) {
+        _score += 10;
+        getNextChosenCell();
+    }
 }

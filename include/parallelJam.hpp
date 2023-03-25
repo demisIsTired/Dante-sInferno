@@ -47,6 +47,7 @@ class GameModule {
         void drawPlayer(int i);
         void drawText(int i);
         void drawEnemy(int i);
+        void getNextChosenCell();
         sf::IntRect getMapRect(int type);
         int _size_x = 30;
         int _size_y = 30;
@@ -54,6 +55,7 @@ class GameModule {
         int _map_y = 0;
         int _timer = 0;
         int _score = 0;
+        int _pointCell = 0;
         float _player_x = 2;
         float _player_y = 15;
         int _left = 0;

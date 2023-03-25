@@ -55,6 +55,7 @@ void GameModule::initGame()
     _enemyPush.push_back(pos);
     
     setMap();
+    getNextChosenCell();
 }
 
 void GameModule::setMap()
