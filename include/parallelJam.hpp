@@ -47,6 +47,7 @@ class GameModule {
         void drawPlayer(int i);
         void drawText(int i);
         void drawEnemy(int i);
+        void drawTitle(int i);
         void getNextChosenCell();
         sf::IntRect getMapRect(int type);
         int _size_x = 30;
@@ -60,6 +61,7 @@ class GameModule {
         float _player_y = 15;
         int _left = 0;
         int _right = 0;
+        int _scale = 0;
         int _up = 0;
         int _down = 0;
         int _leftPlayer = 0;
@@ -68,7 +70,8 @@ class GameModule {
         int _downPlayer = 0;
         int _loop = 1;
         int _menu = 1;
-        float _pushTiles = 16.999969;
+        // float _pushTiles = 16.999969;
+        float _pushTiles = 16;
         float _scaleDown = 1;
         std::vector<struct Point> _enemyPos;
         std::vector<struct Point> _enemyPush;

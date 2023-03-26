@@ -9,7 +9,7 @@
 
 MenuConfig::MenuConfig()
 {
-    _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "ParallelJam");
+    _window = new sf::RenderWindow(sf::VideoMode(1920, 1080), "Dante's Inferno");
     _window->setFramerateLimit(60);
 
     sf::Texture* background_tx = new sf::Texture;

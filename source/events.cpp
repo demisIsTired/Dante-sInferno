@@ -89,11 +89,13 @@ void GameModule::handleEvents()
             _player_y += 0.1;
     }
     if (_leftPlayer) {
+        _scale = 1;
         cell = ((int) (_player_y + 0.7) * _size_x) + (_player_x + 0.33);
         if (_map[cell] == 1)
             _player_x -= 0.1;
     }
     if (_rightPlayer) {
+        _scale = 0;
         cell = ((int) (_player_y + 0.7) * _size_x) + (_player_x + 0.53);
         if (_map[cell] == 1)
             _player_x += 0.1;
