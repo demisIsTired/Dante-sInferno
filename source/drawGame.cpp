@@ -87,7 +87,7 @@ void GameModule::drawTitle(int i)
 
     sf::Vector2f pos;
 
-    pos.x = (0.8 * (_pushTiles * _scaleDown)) + PUSH_MAP_X - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_x * (i + 2));
+    pos.x = (0 * (_pushTiles * _scaleDown)) + PUSH_MAP_X - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_x * (i + 2));
     pos.y = (-3 * (_pushTiles * _scaleDown)) + PUSH_MAP_Y - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_y * (i + 2));
 
     text.setPosition(pos);
