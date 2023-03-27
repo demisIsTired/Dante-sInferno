@@ -173,7 +173,7 @@ void GameModule::drawMap()
                 continue;
             }
             _sprite->setTextureRect(getMapRect(_map[j]));
-            _sprite->setColor(sf::Color::Blue);
+            _sprite->setColor(sf::Color(39, 68, 114));
             if (j == _pointCell)
                 _sprite->setColor(sf::Color(255, 222, 46));
             _sprite->setPosition(sf::Vector2f((j % _size_x * (_pushTiles * _scaleDown)) + PUSH_MAP_X - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_x * (i + 2)), ((j / _size_x) * (_pushTiles * _scaleDown)) + PUSH_MAP_Y - (i * MAP_PUSH_BACK * (i * 0.85)) + (_map_y * (i + 2))));
